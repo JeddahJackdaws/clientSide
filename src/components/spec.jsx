@@ -16,36 +16,38 @@ export default class spec extends Component{
             <h2 id="H2_1">Specialties:</h2>
           <Row className="show-grid text-center">
           <Col xs={12} sm={4} className="person-wrapper">
-          <Link to="/results">
+          <Link to="/specResults/عيون">
             <Image src={x} circle className="profile-pic" />
             <h5>Optometrist</h5></Link>
           </Col>
           <Col xs={12} sm={4} className="person-wrapper">
-          <Link to="/results?dentist">
+          <Link to="/specResults/اسنان">
             <Image src={x} circle className="profile-pic" />
             <h5>Dentist</h5></Link>
           </Col>
           </Row>
           <Row className="show-grid text-center">
           <Col xs={12} sm={4} className="person-wrapper">
-            <Image src={x} circle className="profile-pic"/>
-            <h5>Specialties 3</h5> 
+          <Link to="/specResults/جلدية">
+            <Image src={x} circle className="profile-pic" />
+            <h5>Dermatology</h5></Link>
           </Col>
           <Col xs={12} sm={4} className="person-wrapper">
+          <Link to="/specResults/طبيب عظام">
             <Image src={x} circle className="profile-pic" />
-            <h5>Specialties 4</h5>
+            <h5>Orthopedic</h5></Link>
           </Col>
           </Row>
           <Row className="show-grid text-center">
           <Col xs={12} sm={4} className="person-wrapper">
-            <Image src={x} circle className="profile-pic"  />
-            <h5>Specialties 5</h5> 
+          <Link to="/specResults/طبيب اسرة">
+            <Image src={x} circle className="profile-pic" />
+            <h5>Family medicine</h5></Link>
           </Col>
           <Col xs={12} sm={4} className="person-wrapper">
-               <div class="item">
-          <Image src={x} circle className="profile-pic"  />
-               <h5>Specialties 5</h5> 
-              </div>
+          <Link to="/specResults/أذن وأنف وحنجرة">
+            <Image src={x} circle className="profile-pic" />
+            <h5>ENT doctor</h5></Link>
           </Col>
           </Row>
 

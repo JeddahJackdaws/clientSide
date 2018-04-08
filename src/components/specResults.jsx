@@ -1,14 +1,25 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
+import {
+  Jumbotron,
+  Grid,
+  Row,
+  Col,
+  Image,
+  Button,
+  FormGroup,
+  ControlLabel,
+  FormControl,
+  HelpBlock,
+  DropdownButton,
+  MenuItem,
+  href
+} from 'react-bootstrap';
 import Nbar from './Nbar.jsx';
 import Footer from './Footer.jsx';
-import { Jumbotron, Grid, Row, Col, Image, Button,FormGroup,ControlLabel,FormControl,HelpBlock,DropdownButton,MenuItem,href } from 'react-bootstrap';
+import result from './css/result.css';
 import x from '../images/x.png';
-import './css/hosp.css';
-
-
-export default class hosp extends Component{
+class specResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,7 +30,9 @@ export default class hosp extends Component{
   }
 
   componentDidMount() {
-    fetch('https://betterdoc.herokuapp.com/hospitals')
+    const { match: {params}} = this.props;
+    var test = params.spec;
+    fetch('https://betterdoc.herokuapp.com/doctors/spec/'+test)
       .then(res => res.json())
       .then((result) => {
         this.setState({isLoaded: true, Doctors: result});
@@ -42,7 +55,7 @@ export default class hosp extends Component{
           {Doctors.map(Doctor => (
             <Row className="show-grid text-center">
             <Col xs={12} sm={4} className="person-wrapper">
-              <Link to="/results">
+              <Link to={"/doc/"+ Doctor.name}>
                 <Image src={x} circle className="profile-pic"/>
                 <h5>{Doctor.name}</h5>
               </Link>
@@ -56,3 +69,5 @@ export default class hosp extends Component{
   }
 
 }
+
+export default specResults
