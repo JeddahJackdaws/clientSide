@@ -1,0 +1,10 @@
+nav#nav1 {
+    background-color: #FFFFFF;
+    border-bottom: 3px solid #E4DEFA;
+}
+
+li#con {
+    background-color: #47525E;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
