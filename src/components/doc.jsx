@@ -35,7 +35,7 @@ export default class doc extends Component {
         params
       }} = this.props;
     var test = params.id;
-    fetch('https://betterdoc.herokuapp.com/doctors?name=' + test)
+    fetch('https://betterdoc.herokuapp.com/doctors/id/' + test)
       .then(res => res.json())
       .then((result) => {
         this.setState({isLoaded: true, Doctors: result});

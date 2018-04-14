@@ -24,7 +24,7 @@ class App extends Component {
               <Route exact path="/hospitals" component={hosp}/>
               <Route exact path="/specs" component={spec}/>
               <Route exact path="/specResults/:spec" component={specResults}/>
-              <Route exact path="/results" component={results}/>
+              <Route exact path="/results/:name/:city" component={results}/>
               <Route exact path="/contactus" component={contactus}/>
               <Route exact path="/result2" component={result2}/>
               <Route exact path="/doc/:id" component={doc}/>

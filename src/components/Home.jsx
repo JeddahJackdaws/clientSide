@@ -27,9 +27,29 @@ class Home extends Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      searchV: '',
+      city: ''
+    }
     this.handleClick = this
       .handleClick
       .bind(this)
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+  handleSubmit(event) {
+    this.props.history.push('/results/'+this.state.searchV+'/'+this.state.city)
+    event.preventDefault();
   }
 
   handleClick(e) {
@@ -55,27 +75,32 @@ class Home extends Component {
           <div className="row mt-5">
             <div className="col-md-3"></div>
             <div className="col-md-6">
-              <form>
+              <form onSubmit={this.handleSubmit}>
                 <div className="form-row align-items-center" id="ser">
                   <div className="col-4">
                     <input
                       type="text"
                       className="form-control mb-2"
                       id="inputdata"
-                      placeholder="Doctor name, Hospital.."/>
+                      placeholder="Doctor name, Hospital.."
+                      value={this.state.searchV} onChange={this.handleChange}/>
                   </div>
                   <div className="col-auto">
-                    <select id="inputcity" className="form-control mb-2">
+                    <select
+                      id="inputcity"
+                      name='city'
+                      className="form-control mb-2"
+                      value={this.state.city} onChange={this.handleChange}>
                       <option selected>Near...</option>
-                      <option>Jeddah</option>
-                      <option>Makkah</option>
-                      <option>Riyadh</option>
+                      <option value="jeddah">Jeddah</option>
+                      <option value="makkah">Makkah</option>
+                      <option value="riyadh">Riyadh</option>
                     </select>
                   </div>
                   <div className="col-auto">
-                  <Link to="/results"><button type="submit" className="btn btn-secondary mb-2">
+                    <button className="btn btn-secondary mb-2">
                       Search
-                    </button></Link>
+                    </button>
                   </div>
                 </div>
               </form>
@@ -157,5 +182,4 @@ class Home extends Component {
     );
   }
 }
-
 export default Home
