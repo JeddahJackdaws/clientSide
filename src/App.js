@@ -6,12 +6,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NotFound from './components/NotFound'
 import Home from './components/Home.jsx';
 import About from './components/About.jsx';
-import hosp from './components/hosp.jsx';
+import hospitals from './components/hospitals.jsx';
 import spec from './components/spec.jsx';
 import results from './components/results.jsx';
 import contactus from './components/contactus.jsx';
-import result2 from './components/result2.jsx';
-import doc from './components/doc.jsx';
+import hospital from './components/hospital.jsx';
+import Doctor from './components/Doctor.jsx';
 import specResults from './components/specResults.jsx';
 class App extends Component {
     render() {
@@ -21,13 +21,13 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/about" component={About}/>
-              <Route exact path="/hospitals" component={hosp}/>
+              <Route exact path="/hospitals" component={hospitals}/>
+              <Route exact path="/hospital/:id" component={hospital}/>
               <Route exact path="/specs" component={spec}/>
               <Route exact path="/specResults/:spec" component={specResults}/>
               <Route exact path="/results/:name/:city" component={results}/>
               <Route exact path="/contactus" component={contactus}/>
-              <Route exact path="/result2" component={result2}/>
-              <Route exact path="/doc/:id" component={doc}/>
+              <Route exact path="/doctor/:id" component={Doctor}/>
               <Route component={NotFound}/>
               </Switch>
             </div>

@@ -39,14 +39,13 @@ class Home extends Component {
   }
 
   handleChange(event) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-
-    this.setState({
-      [name]: value
-    });
+    if(event.target.type === 'text'){
+      this.setState({searchV: event.target.value});
+    }else{
+    this.setState({city: event.target.value});
+    }
   }
+  
   handleSubmit(event) {
     this.props.history.push('/results/'+this.state.searchV+'/'+this.state.city)
     event.preventDefault();

@@ -1,27 +1,46 @@
-.low1{
-  list-style-type: none;
-   width: 70%;
+.low1 {
+    list-style-type: none;
+    width: 70%;
     margin: auto;
     margin-top: 5em;
 }
-.low{
-margin-top: 10em;
-margin-left: 45%;
+
+.low {
+    margin-top: 10em;
+    margin-left: 45%;
 }
 
 .solid {
-   width: 67%;
+    width: 67%;
     margin: auto;
     margin-top: 5em;
 }
-.text{
-font-family: "Comic Sans MS", cursive, sans-serif;
+
+.text {
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
-.img{
+
+.img {
     width: 300px;
     height: 300px;
-   margin-left: 80%;
+    margin-left: 80%;
+}
 
+#head {
+    border-color: transparent;
+    border-style: solid solid outset;
+    border-bottom: solid #DDDDDD 1px;
+}
 
-   
+.pb-cmnt-container {
+    font-family: Lato;
+    margin-top: 100px;
+}
+
+.pb-cmnt-textarea {
+    resize: none;
+    padding: 20px;
+    height: 130px;
+    width: 100%;
+    border: 1px solid #F2F2F2;
 }

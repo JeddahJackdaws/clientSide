@@ -1,48 +1,35 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import {
-  Jumbotron,
-  Grid,
-  Row,
-  Col,
-  Image,
-  Button,
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  HelpBlock,
-  DropdownButton,
-  MenuItem,
-  href
-} from 'react-bootstrap';
+
 import Nbar from './Nbar.jsx';
 import Footer from './Footer.jsx';
-import result from './css/result.css';
+import { Jumbotron, Grid, Row, Col, Image, Button,FormGroup,ControlLabel,FormControl,HelpBlock,DropdownButton,MenuItem,href } from 'react-bootstrap';
 import x from '../images/x.png';
-class specResults extends Component {
+import './css/hospitals.css';
+
+
+export default class hospitals extends Component{
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      Doctors: []
+      hospitals: []
     };
   }
 
   componentDidMount() {
-    const { match: {params}} = this.props;
-    var test = params.spec;
-    fetch('https://betterdoc.herokuapp.com/doctors/spec/'+test)
+    fetch('https://betterdoc.herokuapp.com/hospitals')
       .then(res => res.json())
       .then((result) => {
-        this.setState({isLoaded: true, Doctors: result});
+        this.setState({isLoaded: true, hospitals: result});
       }, (error) => {
         this.setState({isLoaded: true, error});
       })
   }
 
   render() {
-    const {error, isLoaded, Doctors} = this.state;
+    const {error, isLoaded, hospitals} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -51,13 +38,13 @@ class specResults extends Component {
       return (
         <div className="img-with-text">
           <Nbar/>
-          <h2 id="H2_1">Doctors:</h2>
-          {Doctors.map(Doctor => (
+          <h2 id="H2_1">hospitals:</h2>
+          {hospitals.map(hospital => (
             <Row className="show-grid text-center">
             <Col xs={12} sm={4} className="person-wrapper">
-              <Link to={"/doctor/"+ Doctor.id}>
+              <Link to={"/hospital/"+hospital.Id}>
                 <Image src={x} circle className="profile-pic"/>
-                <h5>{Doctor.name}</h5>
+                <h5>{hospital.name}</h5>
               </Link>
             </Col>
           </Row>
@@ -69,5 +56,3 @@ class specResults extends Component {
   }
 
 }
-
-export default specResults
