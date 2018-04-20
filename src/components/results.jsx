@@ -57,7 +57,7 @@ class results extends Component {
           {Doctors.map(Doctor => (
             <Row className="show-grid text-center">
             <Col xs={12} sm={4} className="person-wrapper">
-              <Link to={"/doc/"+ Doctor.id}>
+              <Link to={"/Doctor/"+ Doctor.id}>
                 <Image src={x} circle className="profile-pic"/>
                 <h5>{Doctor.name}</h5>
               </Link>
