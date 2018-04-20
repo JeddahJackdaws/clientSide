@@ -60,29 +60,39 @@ export default class hospital extends Component {
               </div>
             ))}
             {isAuthenticated() && (
-              <div className="row mt-5">
-                <div className="col-md-3"></div>
-                <div className="col-md-6">
-                  <div className="panel panel-info">
-                    <div className="panel-body">
-                      <textarea placeholder="Write your comment here!" className="pb-cmnt-textarea"></textarea>
-                      <form className="form-inline">
-                        <div className="input-group mb-3">
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Your username"
-                            aria-label="Your username"
-                            aria-describedby="basic-addon2"/>
-                          <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="button">share</button>
-                          </div>
+              
+            <div className="row mt-5">
+              <div className="col-md-3"></div>
+              <div className="col-md-6">
+                <div className="panel panel-info">
+                  <div className="panel-body">
+                    <form
+                      className="form-inline"
+                      action="https://betterdoc.herokuapp.com/comments/new"
+                      method="post">
+                      <input type="hidden" name="reviewerId" value="15"/>
+                      <input type="hidden" name="medicalId" value={mid}/>
+                      <textarea
+                        name="reviewText"
+                        placeholder="Write your comment here!"
+                        className="pb-cmnt-textarea"></textarea>
+
+                      <div className="input-group mb-3">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Your username"
+                          name="reviewerName"
+                          aria-describedby="basic-addon2"/>
+                        <div className="input-group-append">
+                          <button className="btn btn-outline-secondary" type="submit">share</button>
                         </div>
-                      </form>
-                    </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
+            </div>
             )
 }
             {!isAuthenticated() && (
