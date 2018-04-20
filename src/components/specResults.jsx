@@ -1,23 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {
-  Jumbotron,
-  Grid,
-  Row,
-  Col,
-  Image,
-  Button,
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  HelpBlock,
-  DropdownButton,
-  MenuItem,
-  href
-} from 'react-bootstrap';
-import Nbar from './Nbar.jsx';
+import {Row, Col, Image} from 'react-bootstrap';
 import Footer from './Footer.jsx';
-import result from './css/result.css';
 import x from '../images/x.png';
 class specResults extends Component {
   constructor(props) {
@@ -29,10 +13,16 @@ class specResults extends Component {
     };
   }
 
+  login() {
+    this.props.auth.login();
+  }
+
   componentDidMount() {
-    const { match: {params}} = this.props;
+    const {match: {
+        params
+      }} = this.props;
     var test = params.spec;
-    fetch('https://betterdoc.herokuapp.com/doctors/spec/'+test)
+    fetch('https://betterdoc.herokuapp.com/doctors/spec/' + test)
       .then(res => res.json())
       .then((result) => {
         this.setState({isLoaded: true, Doctors: result});
@@ -46,21 +36,21 @@ class specResults extends Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div><Nbar/><h2>loading</h2><Footer/></div>;
+      return <div>
+        <h2>loading</h2><Footer/></div>;
     } else {
       return (
         <div className="img-with-text">
-          <Nbar/>
           <h2 id="H2_1">Doctors:</h2>
           {Doctors.map(Doctor => (
             <Row className="show-grid text-center">
-            <Col xs={12} sm={4} className="person-wrapper">
-              <Link to={"/doctor/"+ Doctor.id}>
-                <Image src={x} circle className="profile-pic"/>
-                <h5>{Doctor.name}</h5>
-              </Link>
-            </Col>
-          </Row>
+              <Col xs={12} sm={4} className="person-wrapper">
+                <Link to={"/doctor/" + Doctor.id}>
+                  <Image src={x} circle className="profile-pic"/>
+                  <h5>{Doctor.name}</h5>
+                </Link>
+              </Col>
+            </Row>
           ))}
           <Footer/>
         </div>

@@ -1,24 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import {
-  Jumbotron,
-  Grid,
-  Row,
-  Col,
-  Image,
-  Button,
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  HelpBlock,
-  DropdownButton,
-  MenuItem,
-  href
-} from 'react-bootstrap';
-import Nbar from './Nbar.jsx';
-import Footer from './Footer.jsx';
-import './css/result2.css';
-import x from '../images/x.png';
 
 export default class reviews extends Component {
   constructor(props) {
@@ -29,6 +9,13 @@ export default class reviews extends Component {
       mid: "",
       comments: []
     };
+  }
+
+  login() {
+    this
+      .props
+      .auth
+      .login();
   }
 
   componentDidMount() {
@@ -57,7 +44,7 @@ export default class reviews extends Component {
                 <div className="list-group-item list-group-item-action">
                   <div className="row" id="head">
                     <div className="commentHead">
-                      <strong>{comment.reviewerName+" "}</strong>
+                      <strong>{comment.reviewerName + " "}</strong>
                       <span className="text-muted">commented:</span>
                     </div>
                   </div>

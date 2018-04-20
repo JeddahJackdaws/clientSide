@@ -1,30 +1,10 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import {
-  Jumbotron,
-  Grid,
-  Row,
-  Col,
-  Image,
-  Button,
-  ButtonToolbar,
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  HelpBlock,
-  DropdownButton,
-  MenuItem,
-  href
-} from 'react-bootstrap';
-
-import Nbar from './Nbar.jsx';
-import Footer from './Footer.jsx';
-import './css/Home.css';
+import {Button, ButtonToolbar} from 'react-bootstrap';
+import Footer from '../components/Footer.jsx';
+import '../components/css/Home.css';
 import dr from '../images/doctors-review.jpg';
-import ho from '../images/hr.jpg';
 
 class Home extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -34,20 +14,34 @@ class Home extends Component {
     this.handleClick = this
       .handleClick
       .bind(this)
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this
+      .handleChange
+      .bind(this);
+    this.handleSubmit = this
+      .handleSubmit
+      .bind(this);
+  }
+
+  login() {
+    this
+      .props
+      .auth
+      .login();
   }
 
   handleChange(event) {
-    if(event.target.type === 'text'){
+    if (event.target.type === 'text') {
       this.setState({searchV: event.target.value});
-    }else{
-    this.setState({city: event.target.value});
+    } else {
+      this.setState({city: event.target.value});
     }
   }
-  
+
   handleSubmit(event) {
-    this.props.history.push('/results/'+this.state.searchV+'/'+this.state.city)
+    this
+      .props
+      .history
+      .push('/results/' + this.state.searchV + '/' + this.state.city)
     event.preventDefault();
   }
 
@@ -59,8 +53,8 @@ class Home extends Component {
   }
   render() {
     return (
+
       <div>
-        <Nbar/>
         <div className="container">
           <div className="row mt-5">
             <div className="col-md-3"></div>
@@ -72,36 +66,35 @@ class Home extends Component {
 
           </div>
           <div className="row mt-5">
-            <div className="col-md-3"></div>
+            <div className="col-md-2"></div>
             <div className="col-md-6">
               <form onSubmit={this.handleSubmit}>
-                <div className="form-row align-items-center" id="ser">
-                  <div className="col-4">
-                    <input
-                      type="text"
-                      className="form-control mb-2"
-                      id="inputdata"
-                      placeholder="Doctor name, Hospital.."
-                      value={this.state.searchV} onChange={this.handleChange}/>
-                  </div>
-                  <div className="col-auto">
+                <div className="input-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="inputdata"
+                    placeholder="Doctor name.."
+                    value={this.state.searchV}
+                    onChange={this.handleChange}
+                    aria-label="Doctor name.."
+                    aria-describedby="basic-addon2"/>
+                  <div className="input-group-append">
                     <select
                       id="inputcity"
                       name='city'
                       className="form-control mb-2"
-                      value={this.state.city} onChange={this.handleChange}>
-                      <option selected>Near...</option>
+                      value={this.state.city}
+                      onChange={this.handleChange}>
+                      <option selected disabled>Choose here</option>
                       <option value="jeddah">Jeddah</option>
                       <option value="makkah">Makkah</option>
                       <option value="riyadh">Riyadh</option>
                     </select>
-                  </div>
-                  <div className="col-auto">
-                    <button className="btn btn-secondary mb-2">
-                      Search
-                    </button>
+                    <button className="btn btn-outline-secondary">Search</button>
                   </div>
                 </div>
+
               </form>
             </div>
             <div className="col-md-3"></div>
@@ -113,7 +106,7 @@ class Home extends Component {
                 <Button
                   bgStyle="primary"
                   bsSize="large"
-                  value="/specs"
+                  value="/Specialties"
                   onClick={this.handleClick}>Specialties</Button>
                 <Button
                   bgStyle="primary"
@@ -181,4 +174,5 @@ class Home extends Component {
     );
   }
 }
-export default Home
+
+export default Home;

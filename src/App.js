@@ -1,39 +1,83 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import NotFound from './components/NotFound'
-import Home from './components/Home.jsx';
-import About from './components/About.jsx';
-import hospitals from './components/hospitals.jsx';
-import spec from './components/spec.jsx';
-import results from './components/results.jsx';
-import contactus from './components/contactus.jsx';
-import hospital from './components/hospital.jsx';
-import Doctor from './components/Doctor.jsx';
-import specResults from './components/specResults.jsx';
 class App extends Component {
-    render() {
-        return (
-          <Router>
-            <div>
-              <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/about" component={About}/>
-              <Route exact path="/hospitals" component={hospitals}/>
-              <Route exact path="/hospital/:id" component={hospital}/>
-              <Route exact path="/specs" component={spec}/>
-              <Route exact path="/specResults/:spec" component={specResults}/>
-              <Route exact path="/results/:name/:city" component={results}/>
-              <Route exact path="/contactus" component={contactus}/>
-              <Route exact path="/doctor/:id" component={Doctor}/>
-              <Route component={NotFound}/>
-              </Switch>
-            </div>
-          </Router>
-        );
-    }
+  goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
+
+  login() {
+    this.props.auth.login();
+  }
+
+  logout() {
+    this.props.auth.logout();
+  }
+
+  render() {
+    const { isAuthenticated } = this.props.auth;
+
+    return (
+      
+      <nav id="nav1" className="navbar navbar-expand-lg navbar-light ">
+        <Link className="navbar-brand" to="/home">Better Doctor</Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarsExample09"
+          aria-controls="navbarsExample09"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarsExample09">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <Link className="nav-link" to="/home">Home
+                <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/About">About</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/contactus">Contact Us</Link>
+            </li>
+          </ul>
+          <li id="con" className="form-inline my-2 my-md-0">
+          {
+            !isAuthenticated() && (
+                <Button
+                  id="qsLoginBtn"
+                  bsStyle="secondary"
+                  className="btn btn-secondary mb-2"
+                  onClick={this.login.bind(this)}
+                >
+                  Log In
+                </Button>
+              )
+          }
+          {
+            isAuthenticated() && (
+                <Button
+                  id="qsLogoutBtn"
+                  bsStyle="secondary"
+                  className="btn btn-secondary mb-2"
+                  onClick={this.logout.bind(this)}
+                >
+                  Log Out
+                </Button>
+              )
+          }
+          </li>
+        </div>
+      </nav>
+    );
+  }
 }
 
 export default App;

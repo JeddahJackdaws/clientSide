@@ -1,0 +1,13 @@
+.error {
+    padding: 40px 15px;
+    text-align: center;
+}
+
+.errorText {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.errorText .btn {
+    margin-right: 10px;
+}
