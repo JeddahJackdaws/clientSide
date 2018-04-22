@@ -29,13 +29,6 @@ export default class hospital extends Component {
       })
   }
 
-  login() {
-    this
-      .props
-      .auth
-      .login();
-  }
-
   render() {
     const {isAuthenticated} = this.props.auth;
     const {error, isLoaded, mid, hospitals} = this.state;

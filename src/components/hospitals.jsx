@@ -15,10 +15,6 @@ export default class hospitals extends Component {
     };
   }
 
-  login() {
-    this.props.auth.login();
-  }
-
   componentDidMount() {
     fetch('https://betterdoc.herokuapp.com/hospitals')
       .then(res => res.json())

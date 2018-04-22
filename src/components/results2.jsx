@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Row, Col, Image} from 'react-bootstrap';
 import Footer from './Footer.jsx';
+import './css/results.css';
 import x from '../images/x.png';
-class specResults extends Component {
+class results extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -17,8 +19,7 @@ class specResults extends Component {
     const {match: {
         params
       }} = this.props;
-    var test = params.spec;
-    fetch('https://betterdoc.herokuapp.com/doctors/spec/' + test)
+    fetch('https://betterdoc.herokuapp.com/doctors/name/' + params.name)
       .then(res => res.json())
       .then((result) => {
         this.setState({isLoaded: true, Doctors: result});
@@ -41,7 +42,7 @@ class specResults extends Component {
           {Doctors.map(Doctor => (
             <Row className="show-grid text-center">
               <Col xs={12} sm={4} className="person-wrapper">
-                <Link to={"/doctor/" + Doctor.id}>
+                <Link to={"/Doctor/" + Doctor.id}>
                   <Image src={x} circle className="profile-pic"/>
                   <h5>{Doctor.name}</h5>
                 </Link>
@@ -53,7 +54,5 @@ class specResults extends Component {
       );
     }
   }
-
 }
-
-export default specResults
+export default results

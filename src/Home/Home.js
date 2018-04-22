@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, ButtonToolbar} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import Footer from '../components/Footer.jsx';
 import '../components/css/Home.css';
 import dr from '../images/doctors-review.jpg';
@@ -21,14 +21,7 @@ class Home extends Component {
       .handleSubmit
       .bind(this);
   }
-
-  login() {
-    this
-      .props
-      .auth
-      .login();
-  }
-
+  
   handleChange(event) {
     if (event.target.type === 'text') {
       this.setState({searchV: event.target.value});
@@ -38,11 +31,18 @@ class Home extends Component {
   }
 
   handleSubmit(event) {
-    this
+    event.preventDefault();
+    if(this.state.city==='' || this.state.city==='all'){
+      this
+      .props
+      .history
+      .push('/results/' + this.state.searchV)
+    }else{
+      this
       .props
       .history
       .push('/results/' + this.state.searchV + '/' + this.state.city)
-    event.preventDefault();
+    }
   }
 
   handleClick(e) {
@@ -74,6 +74,7 @@ class Home extends Component {
                     type="text"
                     className="form-control"
                     id="inputdata"
+                    required
                     placeholder="Doctor name.."
                     value={this.state.searchV}
                     onChange={this.handleChange}
@@ -86,7 +87,7 @@ class Home extends Component {
                       className="form-control mb-2"
                       value={this.state.city}
                       onChange={this.handleChange}>
-                      <option selected disabled>Choose here</option>
+                      <option selected value="all">ِAll the cities</option>
                       <option value="jeddah">Jeddah</option>
                       <option value="makkah">Makkah</option>
                       <option value="riyadh">Riyadh</option>
@@ -102,7 +103,7 @@ class Home extends Component {
           <div className="row mt-5">
             <div className="col-md-4"></div>
             <div className="col-md-4">
-              <ButtonToolbar>
+              
                 <Button
                   bgStyle="primary"
                   bsSize="large"
@@ -113,7 +114,7 @@ class Home extends Component {
                   bsSize="large"
                   value="/hospitals"
                   onClick={this.handleClick}>Hospitals</Button>
-              </ButtonToolbar>
+              
 
             </div>
             <div className="col-md-4"></div>

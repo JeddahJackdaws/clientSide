@@ -6,16 +6,8 @@ export default class reviews extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      mid: "",
       comments: []
     };
-  }
-
-  login() {
-    this
-      .props
-      .auth
-      .login();
   }
 
   componentDidMount() {

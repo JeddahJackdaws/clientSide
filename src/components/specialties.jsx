@@ -7,13 +7,6 @@ import './css/spec.css';
 
 export default class specialties extends Component {
 
-  login() {
-    this
-      .props
-      .auth
-      .login();
-  }
-
   render() {
     return (
       <div className="img-with-text">

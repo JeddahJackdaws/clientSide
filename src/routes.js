@@ -10,7 +10,7 @@ import SpecResults from './components/specResults.jsx';
 import Contactus from './components/contactus.jsx';
 import Doctor from './components/Doctor.jsx';
 import Results from './components/results.jsx';
-// import NotFound from './components/NotFound.jsx';
+import Results2 from './components/results2.jsx';
 import About from './components/About.jsx';
 import Auth from './Auth/Auth';
 import history from './history';
@@ -37,11 +37,11 @@ export const makeMainRoutes = () => {
           <Route path="/contactus" render={(props) => <Contactus auth={auth} {...props} />} />
           <Route path="/about" render={(props) => <About auth={auth} {...props} />} />
           <Route path="/results/:name/:city" render={(props) => <Results auth={auth} {...props} />} />
+          <Route path="/results/:name/" render={(props) => <Results2 auth={auth} {...props} />} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} /> 
           }}/>
-          {/* <Route component={NotFound} /> */}
         </div>
       </Router>
   );

@@ -27,12 +27,7 @@ export default class Doctor extends Component {
         this.setState({isLoaded: true, error});
       })
   }
-  login() {
-    this
-      .props
-      .auth
-      .login();
-  }
+
   render() {
     const {isAuthenticated} = this.props.auth;
     const {error, isLoaded, Doctors, mid} = this.state;
@@ -69,12 +64,13 @@ export default class Doctor extends Component {
                       <input type="hidden" name="medicalId" value={mid}/>
                       <textarea
                         name="reviewText"
+                        required
                         placeholder="Write your comment here!"
                         className="pb-cmnt-textarea"></textarea>
-
                       <div className="input-group mb-3">
                         <input
                           type="text"
+                          required
                           className="form-control"
                           placeholder="Your username"
                           name="reviewerName"
