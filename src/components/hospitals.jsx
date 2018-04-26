@@ -47,7 +47,7 @@ export default class hospitals extends Component {
       </div>
       <div className="row">
         <div className="col-md-6">
-          <span className="lead" contenteditable="true">we have {hospitals.length} results</span>
+          <span className="lead" contentEditable="true">we have {hospitals.length} results</span>
         </div>
       </div>
     </div>

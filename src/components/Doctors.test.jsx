@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SpecResults from './specResults';
+import Doctors from './Doctors';
 
-describe('spec results', function () {
+describe('Doctor', function () {
 it('load without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<specResults/>, div);
+  ReactDOM.render(<Doctors/>, div);
 });
 })

@@ -17,9 +17,6 @@ class specResults extends Component {
         params
       }} = this.props;
       var test = params.spec;
-    if(this.props.spec !==undefined){
-      test=this.props.spec;
-    }
     
     fetch('https://betterdoc.herokuapp.com/doctors/spec/' + test)
       .then(res => res.json())
