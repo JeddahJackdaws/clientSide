@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import './css/Footer.css';
+import './css/theme.css';
 
 
 class Footer extends Component {
     render(){
         return(
-    <footer className="footer">
+            <div className="html">
+            <div className="py-5 bg-dark text-white">
         <div className="container">
-            <span className="text-muted">Better Doctor &#169;</span>
+            <div className="row">
+                <div className="col-md-12 mt-3 text-center">
+                    <p>© Copyright 2018 Better Doctor- All rights reserved.</p>
+                </div>
+            </div>
         </div>
-    </footer>
+    </div>
+    </div>
         );
     }
 }

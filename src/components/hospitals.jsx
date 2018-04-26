@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Footer from './Footer.jsx';
-import {Row, Col, Image} from 'react-bootstrap';
-import x from '../images/x.png';
-import './css/hospitals.css';
+import Loading from './loading.jsx';
+import './css/theme.css';
+import './css/result.css';
 
 export default class hospitals extends Component {
   constructor(props) {
@@ -16,7 +16,10 @@ export default class hospitals extends Component {
   }
 
   componentDidMount() {
-    fetch('https://betterdoc.herokuapp.com/hospitals')
+    const {match: {
+        params
+      }} = this.props;
+    fetch('https://betterdoc.herokuapp.com/hospitals/city/'+params.city)
       .then(res => res.json())
       .then((result) => {
         this.setState({isLoaded: true, hospitals: result});
@@ -31,21 +34,44 @@ export default class hospitals extends Component {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>
-        <h2>loading</h2><Footer/></div>;
+        <Loading/><Footer/></div>;
     } else {
       return (
-        <div className="img-with-text">
-          <h2 id="H2_1">hospitals:</h2>
-          {hospitals.map(hospital => (
-            <Row className="show-grid text-center">
-              <Col xs={12} sm={4} className="person-wrapper">
-                <Link to={"/hospital/" + hospital.Id}>
-                  <Image src={x} circle className="profile-pic"/>
-                  <h5>{hospital.name}</h5>
-                </Link>
-              </Col>
-            </Row>
+        <div className="html">
+        <div className="py-4">
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12">
+          <h1 className="">List of hospitals</h1>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-6">
+          <span className="lead" contenteditable="true">we have {hospitals.length} results</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div className="py-2">
+    <div className="container">
+    {hospitals.map(hospital => (
+            <div className="row mt-1">
+        <div className="col-md-12">
+          <div className="list-group">
+            <Link to={"/hospital/" + hospital.Id} className="list-group-item list-group-item-action flex-column align-items-start">
+              <div className="d-flex w-100 justify-content-between">
+                <h5 className="mb-1">#1</h5>
+                <small>{hospital.rating}</small>
+              </div>
+              <p className="mb-1">{hospital.name}</p>
+              <small>{hospital.city}</small>
+            </Link>
+          </div>
+        </div>
+      </div>
           ))}
+    </div>
+  </div>
           <Footer/>
         </div>
       );

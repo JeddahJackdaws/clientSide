@@ -1,0 +1,105 @@
+.fcontrol {
+    height: 60px;
+    width: 100%;
+    line-height: 7;
+    font-size: 19px;
+    display: inline-block;
+    border: none;
+    border-radius: 0%;
+    box-shadow: none;
+    color: none;
+    -webkit-box-shadow: none;
+    border-color: inherit;
+    outline: none;
+    outline-color: 0;
+    ;
+}
+
+.search_button {
+    height: 52px;
+    width: 93%;
+    display: inline-block;
+    margin-top: 3px;
+    padding: 0%;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+    font-size: 19px !important;
+    line-height: 15px !important;
+    letter-spacing: undefined !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    border: 0px !important;
+    background: #2188b6 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+}
+
+.dropdown_list {
+    font-size: 19px !important;
+    line-height: 15px !important;
+    letter-spacing: undefined !important;
+    height: 100%;
+    width: 93%;
+    border: none;
+    border-radius: 0%;
+    box-shadow: none;
+    color: none;
+    -webkit-box-shadow: none;
+    border-color: inherit;
+    outline: none;
+    outline-color: 0;
+}
+
+.formgroup {
+    min-width: 100%;
+    height: 60px;
+    display: inline-block;
+    border: none;
+    border-radius: 0%;
+    box-shadow: none;
+    color: none;
+    -webkit-box-shadow: none;
+    border-color: inherit;
+    outline: none;
+    outline-color: none;
+    color: none;
+    box-shadow: 0 9px 15px -2px rgba(0, 0, 0, 0.19);
+}
+
+.formgroup_container {
+    margin-right: 18%;
+    float: right;
+    height: 60px;
+    width: 50%;
+    background: white;
+}
+
+.dropDown_container {
+    float: right;
+    height: 60px;
+    width: 7%;
+    background: white;
+    box-shadow: 0 9px 15px -2px rgba(0, 0, 0, 0.19);
+}
+
+.btn_container {
+    float: right;
+    height: 60px;
+    width: 7%;
+    background: white;
+    box-shadow: 0 9px 15px -2px rgba(0, 0, 0, 0.19);
+}
+
+.form-control:focus {
+    border-color: none;
+    outline: none;
+    color: none;
+}
+
+.fcontrol:focus {
+    outline: none;
+}
+
+.searchForm_container {
+    margin-top: 7%;
+    width: 100%;
+}

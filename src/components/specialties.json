@@ -1,0 +1,112 @@
+[{
+    "name": "All Doctors",
+    "link": "/doctors"
+}, {
+    "name": "Optometrist",
+    "link": "/specResults/عيون"
+}, {
+    "name": "Orthopedic",
+    "link": "/specResults/عظام"
+}, {
+    "name": "Pediatric",
+    "link": "/specResults/اطفال"
+}, {
+    "name": "Dentist",
+    "link": "/specResults/اسنان"
+}, {
+    "name": "Dermatology",
+    "link": "/specResults/جلدية"
+}, {
+    "name": "General Surgery",
+    "link": "/specResults/جراحة"
+}, {
+    "name": "Pain Service",
+    "link": "/specResults/الألم المتزامن"
+}, {
+    "name": "Rehabilitation",
+    "link": "/specResults/إعادة التأهيل"
+}, {
+    "name": "Urology",
+    "link": "/specResults/مسالك بولية"
+}, {
+    "name": "Andrology",
+    "link": "/specResults/ذكورة"
+}, {
+    "name": "Audiology",
+    "link": "/specResults/سمعيات"
+}, {
+    "name": "Breastfeeding Clinic",
+    "link": "/specResults/رضاعة"
+}, {
+    "name": "Cardiology",
+    "link": "/specResults/قلب"
+}, {
+    "name": "Chest",
+    "link": "/specResults/صدر"
+}, {
+    "name": "Chiropractic Medicine",
+    "link": "/specResults/تقويم العمود الفقري"
+}, {
+    "name": "Dietary",
+    "link": "/specResults/تغذية"
+}, {
+    "name": "E.N.T.",
+    "link": "/specResults/أذن"
+}, {
+    "name": "Endocrinology",
+    "link": "/specResults/طبيب الغدد الصماء"
+}, {
+    "name": "Family Medicine",
+    "link": "/specResults/طبيب اسرة"
+}, {
+    "name": "Gastroenterology",
+    "link": "/specResults/طبيب الجهاز الهضمي"
+}, {
+    "name": "General Surgery",
+    "link": "/specResults/جراح"
+}, {
+    "name": "Hematology",
+    "link": "/specResults/تحاليل الدم"
+}, {
+    "name": "Hyperbaric Oxygen Service",
+    "link": "/specResults/معالجة بالأكسجين عالي الضغط"
+}, {
+    "name": "Infectious Diseases",
+    "link": "/specResults/طبيب امراض معدية"
+}, {
+    "name": "Internal Medicine",
+    "link": "/specResults/طب باطني"
+}, {
+    "name": "Interventional Radiology",
+    "link": "/specResults/طبيب اشعة"
+}, {
+    "name": "Nephrology",
+    "link": "/specResults/طبيب كلى"
+}, {
+    "name": "Neurology",
+    "link": "/specResults/طبيب اعصاب"
+}, {
+    "name": "Neurosurgery",
+    "link": "/specResults/جراح اعصاب"
+}, {
+    "name": "Obstetrics & Gynecology",
+    "link": "/specResults/طبيب نساء وولادة"
+}, {
+    "name": "Oncology",
+    "link": "/specResults/طبيب اورام"
+}, {
+    "name": "Plastic Surgery",
+    "link": "/specResults/جراحة تجميلية"
+}, {
+    "name": "Psychiatry",
+    "link": "/specResults/طبيب نفسي"
+}, {
+    "name": "Rheumatology",
+    "link": "/specResults/روماتيزم"
+}, {
+    "name": "Speech Theraphy",
+    "link": "/specResults/النطق"
+}, {
+    "name": "Vascular Surgery",
+    "link": "/specResults/جراحة الأوعية الدموية"
+}]

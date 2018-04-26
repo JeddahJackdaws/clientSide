@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import {Row, Col, Image} from 'react-bootstrap';
 import Footer from './Footer.jsx';
-import x from '../images/x.png';
+import Loading from './loading.jsx';
 class specResults extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +16,11 @@ class specResults extends Component {
     const {match: {
         params
       }} = this.props;
-    var test = params.spec;
+      var test = params.spec;
+    if(this.props.spec !==undefined){
+      test=this.props.spec;
+    }
+    
     fetch('https://betterdoc.herokuapp.com/doctors/spec/' + test)
       .then(res => res.json())
       .then((result) => {
@@ -33,21 +36,39 @@ class specResults extends Component {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>
-        <h2>loading</h2><Footer/></div>;
+        <Loading/><Footer/></div>;
     } else {
       return (
-        <div className="img-with-text">
-          <h2 id="H2_1">Doctors:</h2>
-          {Doctors.map(Doctor => (
-            <Row className="show-grid text-center">
-              <Col xs={12} sm={4} className="person-wrapper">
-                <Link to={"/doctor/" + Doctor.id}>
-                  <Image src={x} circle className="profile-pic"/>
-                  <h5>{Doctor.name}</h5>
-                </Link>
-              </Col>
-            </Row>
+        
+        <div className="html">
+        <div className="py-4">
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12">
+          <h1 className="">we have {Doctors.length} results.</h1>
+        </div>
+      </div>  
+    </div>
+  </div>
+  <div className="py-2">
+    <div className="container">
+    {Doctors.map(doctor => (
+            <div className="row mt-1">
+        <div className="col-md-12">
+          <div className="list-group">
+            <Link to={"/doctor/" + doctor.id} className="list-group-item list-group-item-action flex-column align-items-start">
+              <div className="d-flex w-100 justify-content-between">
+                <h5 className="mb-1">#{doctor.id}</h5>
+              </div>
+              <p className="mb-1">{doctor.name}</p>
+              <small>{doctor.speciality}</small>
+            </Link>
+          </div>
+        </div>
+      </div>
           ))}
+    </div>
+  </div>
           <Footer/>
         </div>
       );
